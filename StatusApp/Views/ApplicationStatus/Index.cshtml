@@ -1,0 +1,45 @@
+﻿@model IEnumerable<StatusApp.Models.ApplicationStatus>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Pending)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approved)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reject)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pending)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Approved)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reject)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.StatusID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.StatusID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.StatusID })
+        </td>
+    </tr>
+}
+
+</table>
